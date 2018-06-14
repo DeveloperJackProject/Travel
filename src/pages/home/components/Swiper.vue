@@ -3,7 +3,7 @@
     <swiper :options="swiperOption">
       <!-- slides -->
       <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img class="swiper-image" :src="item.imgaeUrl">
+        <img class="swiper-image" :src="item.imageUrl">
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>
@@ -23,11 +23,11 @@ export default {
       swiperList: [
         {
           id: '0001',
-          imgaeUrl: 'https://b2-q.mafengwo.net/s10/M00/4B/E6/wKgBZ1oKu-uAI6yuAAFxwUc4cgY85.jpeg'
+          imageUrl: 'https://b2-q.mafengwo.net/s10/M00/4B/E6/wKgBZ1oKu-uAI6yuAAFxwUc4cgY85.jpeg'
         },
         {
           id: '0002',
-          imgaeUrl: 'https://p1-q.mafengwo.net/s11/M00/39/40/wKgBEFsP1vGABq8tAAGI1yRVDos14.jpeg'
+          imageUrl: 'https://p1-q.mafengwo.net/s11/M00/39/40/wKgBEFsP1vGABq8tAAGI1yRVDos14.jpeg'
         }
       ]
     }
