@@ -4,10 +4,12 @@
       <span class="iconfont icon-fanhui"></span>
     </div>
     <div class="header-input"><span class="iconfont icon-sousuo"></span>输入经典/城市/游玩/主题</div>
-    <div class="header-right">
-      {{this.city}}
-      <span class="iconfont icon-jiantou"></span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        {{this.city}}
+        <span class="iconfont icon-jiantou"></span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -23,8 +25,8 @@ export default {
 <style lang="stylus" scoped>
   @import "~styles/varibles.styl"
   .header
-    height: .86rem
-    line-height: .86rem
+    height: $headerHeight
+    line-height: $headerHeight
     display: flex
     background-color: $bgColor
     color: #fff
@@ -41,6 +43,7 @@ export default {
     .header-right
       width: 1.24rem
       text-align center
+      color #fff
       .icon-jiantou
         font-size .24rem
 </style>
