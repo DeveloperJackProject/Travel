@@ -25,6 +25,7 @@
         class="area"
         v-for="(item, key) of cities"
         :key="key"
+        :ref="key"
       >
         <div class="title border-topbottom">{{key}}</div>
         <div
@@ -46,7 +47,8 @@ export default {
   props: {
     currentCity: Object,
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   computed: {
     getCurrentCity () {
@@ -58,6 +60,14 @@ export default {
   },
   updated () {
     this.scroll.refresh()
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element, 200)
+      }
+    }
   }
 }
 </script>

@@ -2,8 +2,13 @@
     <div>
       <city-header></city-header>
       <city-search></city-search>
-      <city-list :currentCity="currentCity" :cities="cities" :hotCities="hotCities"></city-list>
-      <city-alphabet :cities="cities"></city-alphabet>
+      <city-list
+        :currentCity="currentCity"
+        :cities="cities"
+        :hotCities="hotCities"
+        :letter="letter"
+      ></city-list>
+      <city-alphabet :cities="cities" @change="handleLetterChange"></city-alphabet>
     </div>
 </template>
 
@@ -24,7 +29,8 @@ export default {
         'name': '北京'
       },
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letter: ''
     }
   },
   mounted () {
@@ -43,6 +49,9 @@ export default {
         this.hotCities = data.hotCities
         this.currentCity = data.currentCity
       }
+    },
+    handleLetterChange (letter) {
+      this.letter = letter
     }
   }
 }
