@@ -14,10 +14,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>
@@ -41,7 +42,8 @@ export default {
       border-radius .1rem
       color #cccccc
     .header-right
-      width: 1.24rem
+      mix-width: 1.04rem
+      padding 0 .1rem
       text-align center
       color #fff
       .icon-jiantou
