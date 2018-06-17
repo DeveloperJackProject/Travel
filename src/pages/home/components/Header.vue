@@ -4,18 +4,21 @@
       <span class="iconfont icon-fanhui"></span>
     </div>
     <div class="header-input"><span class="iconfont icon-sousuo"></span>输入经典/城市/游玩/主题</div>
-    <div class="header-right">
-      {{this.city}}
-      <span class="iconfont icon-jiantou"></span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        {{this.city}}
+        <span class="iconfont icon-jiantou"></span>
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>
@@ -23,8 +26,8 @@ export default {
 <style lang="stylus" scoped>
   @import "~styles/varibles.styl"
   .header
-    height: .86rem
-    line-height: .86rem
+    height: $headerHeight
+    line-height: $headerHeight
     display: flex
     background-color: $bgColor
     color: #fff
@@ -39,8 +42,10 @@ export default {
       border-radius .1rem
       color #cccccc
     .header-right
-      width: 1.24rem
+      mix-width: 1.04rem
+      padding 0 .1rem
       text-align center
+      color #fff
       .icon-jiantou
         font-size .24rem
 </style>
