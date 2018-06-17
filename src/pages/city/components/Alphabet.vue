@@ -1,6 +1,6 @@
 <template>
   <ul class="list">
-    <li class="item" v-for="item of cityAlphabet" :key="item">{{item}}</li>
+    <li class="item" v-for="item of getAlphabet" :key="item">{{item}}</li>
   </ul>
 </template>
 
@@ -8,7 +8,13 @@
 export default {
   name: 'CityAlphabet',
   props: {
-    cityAlphabet: Array
+    cities: Object
+  },
+  computed: {
+    getAlphabet () {
+      const cityAlphabet = Object.keys(this.cities)
+      return cityAlphabet
+    }
   }
 }
 </script>

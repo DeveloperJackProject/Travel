@@ -3,7 +3,7 @@
       <city-header></city-header>
       <city-search></city-search>
       <city-list :currentCity="currentCity" :cities="cities" :hotCities="hotCities"></city-list>
-      <city-alphabet :cityAlphabet="getAlphabet"></city-alphabet>
+      <city-alphabet :cities="cities"></city-alphabet>
     </div>
 </template>
 
@@ -33,9 +33,9 @@ export default {
   methods: {
     getCityInfo () {
       axios.get('/api/city.json')
-        .then(this.getCityInfoSucc)
+        .then(this.handleGetCityInfoSucc)
     },
-    getCityInfoSucc (res) {
+    handleGetCityInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
@@ -43,12 +43,6 @@ export default {
         this.hotCities = data.hotCities
         this.currentCity = data.currentCity
       }
-    }
-  },
-  computed: {
-    getAlphabet () {
-      const cityAlphabet = Object.keys(this.cities)
-      return cityAlphabet
     }
   }
 }
