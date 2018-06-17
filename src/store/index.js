@@ -6,11 +6,11 @@ import mutations from './mutations'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: state,
+  state,
   actions: {
     changeCity (ctx, city) {
       this.commit('changeCity', city)
     }
   },
-  mutations: mutations
+  mutations
 })
