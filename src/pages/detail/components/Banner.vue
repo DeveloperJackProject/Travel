@@ -1,0 +1,73 @@
+<template>
+  <div>
+    <div class="banner">
+      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg" alt="">
+      <div class="banner-info">
+        <div class="banner-title">大连圣亚海洋世界(AAAA景区)</div>
+        <div class="banner-number" @click="handleGallaryClick"><span class="iconfont icon-tupian banner-icon">39</span></div>
+      </div>
+    </div>
+    <common-gallary
+      v-show="showGallary"
+      :imgs="imgs"
+      @close="handleGallaryClose"
+    ></common-gallary>
+  </div>
+</template>
+
+<script>
+import CommonGallary from 'common/gallary/Gallary'
+
+export default {
+  name: 'detailBanner',
+  components: {CommonGallary},
+  data () {
+    return {
+      showGallary: false,
+      imgs: ['//img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg', '//img1.qunarzz.com/sight/p0/1709/76/7691528bc7d7ad3ca3.img.png_800x800_9ef05ee7.png']
+    }
+  },
+  methods: {
+    handleGallaryClick () {
+      this.showGallary = true
+    },
+    handleGallaryClose () {
+      this.showGallary = false
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+  .banner
+    overflow hidden
+    height 0
+    padding-bottom 55%
+    position relative
+    .banner-img
+      width 100%
+    .banner-info
+      display flex
+      position absolute
+      left 0
+      right 0
+      bottom 0
+      line-height .6rem
+      color #fff
+      background-image linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .8))
+      .banner-title
+        flex 1
+        font-size .32rem
+        padding 0 .2rem
+        text-align left
+      .banner-number
+        height .32rem
+        margin-top .14rem
+        padding 0 .4rem
+        line-height .32rem
+        border-radius .2rem
+        background rgba(0, 0, 0, .8)
+        font-size .24rem
+        .banner-icon
+          font-size .24rem
+</style>
