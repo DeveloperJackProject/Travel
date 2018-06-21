@@ -7,20 +7,23 @@
         <div class="banner-number" @click="handleGallaryClick"><span class="iconfont icon-tupian banner-icon">{{this.getGallaryImgsNum}}</span></div>
       </div>
     </div>
-    <common-gallary
-      v-show="showGallary"
-      :imgs="gallaryImgs"
-      @close="handleGallaryClose"
-    ></common-gallary>
+    <fade-animation>
+      <common-gallary
+        v-show="showGallary"
+        :imgs="gallaryImgs"
+        @close="handleGallaryClose"
+      ></common-gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary/Gallary'
+import FadeAnimation from 'common/fade/FadeAnimation'
 
 export default {
   name: 'detailBanner',
-  components: {CommonGallary},
+  components: {FadeAnimation, CommonGallary},
   props: {
     sightName: String,
     bannerImg: String,
